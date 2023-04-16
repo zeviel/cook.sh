@@ -5,6 +5,7 @@ sign=null
 vk_user_id=null
 vk_ts=null
 vk_ref=null
+user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
 
 function authenticate() {
 	# 1 - sign: (string): <sign>
@@ -27,7 +28,7 @@ function authenticate() {
 function get_user() {
 	curl --request GET \
 		--url "$api/user.getInfo" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "xvk: $params"
 }
@@ -35,7 +36,7 @@ function get_user() {
 function get_recipe_categories() {
 	curl --request GET \
 		--url "$api/service.getCategoriesRecipes" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "xvk: $params"
 }
@@ -43,7 +44,7 @@ function get_recipe_categories() {
 function get_notifications() {
 	curl --request GET \
 		--url "$api/notifications.get" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "xvk: $params"
 }
@@ -51,7 +52,7 @@ function get_notifications() {
 function get_user_settings() {
 	curl --request GET \
 		--url "$api/user.getSettings" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "xvk: $params"
 }
@@ -61,7 +62,7 @@ function get_rating() {
 	# 2 - offset: (integer): <offset - default: 10>
 	curl --request POST \
 		--url "$api/rating.get" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "xvk: $params" \
 		--data '{
@@ -74,7 +75,7 @@ function get_category() {
 	# 1 - category: (string): <category>
 	curl --request POST \
 		--url "$api/category.get" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "xvk: $params" \
 		--data '{
@@ -87,7 +88,7 @@ function get_recipe_info() {
 	# 1 - recipe_id: (integer): <recipe_id>
 	curl --request POST \
 		--url "$api/recipe.get" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "xvk: $params" \
 		--data '{
@@ -99,7 +100,7 @@ function get_recipe_comments() {
 	# 1 - recipe_id: (integer): <recipe_id>
 	curl --request POST \
 		--url "$api/comments.get" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "xvk: $params" \
 		--data '{
@@ -112,7 +113,7 @@ function set_like() {
 	# 2 - object_id: (integer): <object_id>
 	curl --request POST \
 		--url "$api/user.setLike" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "xvk: $params" \
 		--data '{
@@ -126,7 +127,7 @@ function add_comment() {
 	# 2 - comment: (string): <comment>
 	curl --request POST \
 		--url "$api/comments.add" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "xvk: $params" \
 		--data '{
@@ -139,7 +140,7 @@ function delete_comment() {
 	# 1 - comment_id: (integer): <comment_id>
 	curl --request POST \
 		--url "$api/comments.delete" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "xvk: $params" \
 		--data '{
@@ -150,7 +151,7 @@ function delete_comment() {
 function get_favorites() {
 	curl --request GET \
 		--url "$api/user.getFavorites" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "xvk: $params"
 }
@@ -158,7 +159,7 @@ function get_favorites() {
 function get_subscribers() {
 	curl --request GET \
 		--url "$api/user.getSubscribers" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "xvk: $params"
 }
@@ -166,7 +167,7 @@ function get_subscribers() {
 function get_recipes() {
 	curl --request GET \
 		--url "$api/user.getRecipes" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "xvk: $params"
 }
@@ -174,7 +175,7 @@ function get_recipes() {
 function get_likes() {
 	curl --request GET \
 		--url "$api/user.getLikes" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "xvk: $params"
 }
